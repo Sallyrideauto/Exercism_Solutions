@@ -82,5 +82,4 @@ def perfect_score(student_info):
 
     if student_info and student_info[0][1] == 100:
         return student_info[0]
-    else:
-        return []
+    return []
