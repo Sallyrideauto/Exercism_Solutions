@@ -1,0 +1,4 @@
+/Users/sallyride/Exercism/cpp/making-the-grade/build/CMakeFiles/making-the-grade.dir
+/Users/sallyride/Exercism/cpp/making-the-grade/build/CMakeFiles/test_making-the-grade.dir
+/Users/sallyride/Exercism/cpp/making-the-grade/build/CMakeFiles/edit_cache.dir
+/Users/sallyride/Exercism/cpp/making-the-grade/build/CMakeFiles/rebuild_cache.dir
