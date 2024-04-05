@@ -7,67 +7,102 @@
 std::vector<int> round_down_scores(std::vector<double> student_scores)
 {
     // TODO: Implement round_down_scores
-    std::vector<int> rounded_scores;
-    std::transform(student_scores.begin(), student_scores.end(), std::back_inserter(rounded_scores), [](double score)
-                   { return static_cast<int>(score); });
-    return rounded_scores;
+    std::vector<int> scores{};
+    int l = student_scores.size();
+
+    for (int i{0}; i < l; i++)
+    {
+        double score = student_scores.at(i);
+        scores.emplace_back(static_cast<int>(score));
+    }
+
+    return scores;
 }
 
 // Count the number of failing students out of the group provided.
 int count_failed_students(std::vector<int> student_scores)
 {
     // TODO: Implement count_failed_students
-    return std::count_if(student_scores.begin(), student_scores.end(), [](int score)
-                         { return score <= 40; });
+    int count{0};
+    int l = student_scores.size();
+
+    for (int i{0}; i < l; i++)
+    {
+        if (student_scores.at(i) <= 40)
+        {
+            count++;
+        }
+    }
+
+    return count;
 }
 
 // Determine how many of the provided student scores were 'the best' based on the provided threshold.
 std::vector<int> above_threshold(std::vector<int> student_scores, int threshold)
 {
     // TODO: Implement above_threshold
-    std::vector<int> best_scores;
-    std::copy_if(student_scores.begin(), student_scores.end(), std::back_inserter(best_scores), [threshold](int score)
-                 { return score >= threshold; });
-    return best_scores;
+    std::vector<int> scores{};
+    int l = student_scores.size();
+
+    for (int i{0}; i < l; i++)
+    {
+        int score = student_scores.at(i);
+        if (score >= threshold)
+        {
+            scores.emplace_back(score);
+        }
+    }
+
+    return scores;
 }
 
 // Create a list of grade thresholds based on the provided highest grade.
 std::array<int, 4> letter_grades(int highest_score)
 {
     // TODO: Implement letter_grades
-    static const int FAILING_SCORE = 40;
-    int grade_increment = (highest_score - FAILING_SCORE) / 4;
-    std::array<int, 4> letter_scores;
-    for (int i = 0; i < letter_scores.size(); ++i)
-    {
-        letter_scores[i] = ((FAILING_SCORE + grade_increment * i) + 1);
-    }
-    return letter_scores;
+    int difference = highest_score - 40;
+    int section = difference / 4;
+
+    int D = 40 + 1;
+    int C = D + section;
+    int B = C + section;
+    int A = B + section;
+
+    return std::array<int, 4>{D, C, B, A};
 }
 
 // Organize the student's rank, name, and grade information in ascending order.
 std::vector<std::string> student_ranking(std::vector<int> student_scores, std::vector<std::string> student_names)
 {
     // TODO: Implement student_ranking
-    std::vector<std::string> formatted_scores;
-    int rank = 1;
-    std::transform(student_scores.begin(), student_scores.end(), student_names.begin(), std::back_inserter(formatted_scores), [&rank](int score, const std::string &name)
-                   { return std::to_string(rank++) + ". " + name + " - " + std::to_string(score); });
-    return formatted_scores;
+    std::vector<std::string> ranking{};
+    int l = student_scores.size();
+
+    for (int i{0}; i < l; i++)
+    {
+        int score = student_scores.at(i);
+        std::string name = student_names.at(i);
+
+        ranking.emplace_back(std::to_string(i + 1) + ". " + name + ": " + std::to_string(score));
+    }
+
+    return ranking;
 }
 
 // Create a string that contains the name of the first student to make a perfect score on the exam.
 std::string perfect_score(std::vector<int> student_scores, std::vector<std::string> student_names)
 {
     // TODO: Implement perfect_score
-    std::string first_perfect_score_name;
-    int i = 0;
-    for (auto itr = student_scores.begin(); itr != student_scores.end(); ++itr, ++i)
+    int l = student_scores.size();
+
+    for (int i{0}; i < l; i++)
     {
-        if (*itr == 100)
+        int score = student_scores.at(i);
+        if (score == 100)
         {
             return student_names.at(i);
         }
     }
+
     return "";
 }
