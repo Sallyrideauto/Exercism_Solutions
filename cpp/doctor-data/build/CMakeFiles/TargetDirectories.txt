@@ -1,0 +1,4 @@
+/Users/sallyride/Exercism/cpp/doctor-data/build/CMakeFiles/doctor-data.dir
+/Users/sallyride/Exercism/cpp/doctor-data/build/CMakeFiles/test_doctor-data.dir
+/Users/sallyride/Exercism/cpp/doctor-data/build/CMakeFiles/edit_cache.dir
+/Users/sallyride/Exercism/cpp/doctor-data/build/CMakeFiles/rebuild_cache.dir
