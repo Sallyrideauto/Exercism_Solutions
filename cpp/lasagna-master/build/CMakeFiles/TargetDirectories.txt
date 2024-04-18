@@ -1,0 +1,4 @@
+/Users/sallyride/Exercism/cpp/lasagna-master/build/CMakeFiles/lasagna-master.dir
+/Users/sallyride/Exercism/cpp/lasagna-master/build/CMakeFiles/test_lasagna-master.dir
+/Users/sallyride/Exercism/cpp/lasagna-master/build/CMakeFiles/edit_cache.dir
+/Users/sallyride/Exercism/cpp/lasagna-master/build/CMakeFiles/rebuild_cache.dir

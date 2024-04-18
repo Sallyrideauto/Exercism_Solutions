@@ -44,8 +44,9 @@ export function swapTopTwoCards(deck) {
  * deck and a new deck containing all the other cards
  */
 export function discardTopCard(deck) {
-  const topCard = [deck[0], [...deck.slice(1)]];
-  return topCard;
+  const topCard = deck[0];
+  const newDeck = deck.slice(1);
+  return [topCard, newDeck];
 }
 
 /** @type {Card[]} **/
