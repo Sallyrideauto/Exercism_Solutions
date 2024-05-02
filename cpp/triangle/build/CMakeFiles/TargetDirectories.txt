@@ -1,0 +1,4 @@
+/Users/sallyride/Exercism/cpp/triangle/build/CMakeFiles/triangle.dir
+/Users/sallyride/Exercism/cpp/triangle/build/CMakeFiles/test_triangle.dir
+/Users/sallyride/Exercism/cpp/triangle/build/CMakeFiles/edit_cache.dir
+/Users/sallyride/Exercism/cpp/triangle/build/CMakeFiles/rebuild_cache.dir
