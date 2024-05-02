@@ -6,8 +6,8 @@
  */
 export function order(query, onSuccess, onError) {
   if (query.quantity > 0) {
-    onSuccess("{ message: 'SUCCESS' }");
+    onSuccess(); // 성공 콜백 호출
   } else {
-    onError("{ message: 'ERROR' }");
+    onError(); // 오류 콜백 호출
   }
 }
