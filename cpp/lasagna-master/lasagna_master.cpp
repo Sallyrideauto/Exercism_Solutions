@@ -15,11 +15,12 @@ namespace lasagna_master
         return amnt;
     }
 
-    void addSecretIngredient(std::vector<std::string> &myList, const std::vector<std::string> friendsList)
+    void addSecretIngredient(std::vector<std::string> &myList, const std::vector<std::string> &friendsList)
     {
         myList.back() = friendsList.back();
     }
 
+    // Scales quantities based on the number of portions
     std::vector<double> scaleRecipe(std::vector<double> quantities, double num)
     {
         for (double &i : quantities)
