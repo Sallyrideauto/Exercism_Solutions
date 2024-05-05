@@ -42,17 +42,19 @@ namespace election
 
     ElectionResult &determine_result(std::vector<ElectionResult> &final_count)
     {
-        int max = 0;
-        int index = 0;
+        int max_votes = 0;
+        size_t index = 0; // 배열 인덱싱을 할 경우 음수가 발생하지 않도록 size_t로 선언
 
-        for (int i = 0; i < final_count.size(); i++)
+        for (size_t i = 0; i < final_count.size(); i++)
         {
-            if (final_count[i].votes > max)
+            int current_votes = final_count[i].votes; // final_count[i].votes를 변수로 저장하여 중복 연산 최소화
+            if (current_votes > max_votes)
             {
-                max = final_count[i].votes;
+                max_votes = current_votes;
                 index = i;
             }
         }
+
         final_count[index].name = "President " + final_count[index].name;
         return final_count[index];
     }
