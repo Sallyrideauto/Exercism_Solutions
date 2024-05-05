@@ -19,15 +19,17 @@ namespace heaven
     class Vessel
     {
     public:
+        std::string name;                // public으로 변경
+        int generation;                  // public으로 변경
+        star_map::System current_system; // public으로 변경
+        int busters;                     // public으로 변경
+
         Vessel(std::string name, int generation, star_map::System current_system = star_map::System::Sol);
-        auto replicate(std::string name) const -> Vessel;
-        auto make_buster() -> void;
-        auto shoot_buster() -> bool;
-        std::string name;
-        int generation;
-        star_map::System current_system;
-        int busters;
+        Vessel replicate(std::string name) const;
+        void make_buster();
+        bool shoot_buster();
     };
-    auto get_older_bob(const Vessel &a, const Vessel &b) -> std::string;
-    auto in_the_same_system(const Vessel &a, const Vessel &b) -> bool;
+
+    std::string get_older_bob(const Vessel &a, const Vessel &b);
+    bool in_the_same_system(const Vessel &a, const Vessel &b);
 }
