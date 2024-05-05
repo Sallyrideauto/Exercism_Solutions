@@ -33,11 +33,14 @@ namespace hellmath
     // otherwise.
     bool display_post(AccountStatus poster, AccountStatus viewer)
     {
-        if (poster == AccountStatus::troll && viewer != AccountStatus::troll)
+        // Switch case 문을 사용하여 트롤 포스트 처리
+        switch (poster)
         {
-            return false;
+        case AccountStatus::troll:
+            return viewer == AccountStatus::troll;
+        default:
+            return true;
         }
-        return true;
     }
 
     // TODO: Task 3 - Implement the `permission_check` function, that takes an
@@ -45,27 +48,19 @@ namespace hellmath
     // should return a `bool`.
     bool permission_check(Action action, AccountStatus status)
     {
-        if (status == AccountStatus::guest)
+        // Switch case와 switch-case fall-through를 사용하여 권한 확인
+        switch (status)
         {
-            if (action == Action::read)
-            {
-                return true;
-            }
-            return false;
-        }
-        if (status == AccountStatus::user || status == AccountStatus::troll)
-        {
-            if (action == Action::read || action == Action::write)
-            {
-                return true;
-            }
-            return false;
-        }
-        if (status == AccountStatus::mod)
-        {
+        case AccountStatus::guest:
+            return action == Action::read;
+        case AccountStatus::user:
+        case AccountStatus::troll:
+            return action == Action::read || action == Action::write;
+        case AccountStatus::mod:
             return true;
+        default:
+            return false;
         }
-        return false;
     }
 
     // TODO: Task 4 - Implement the `valid_player_combination` function that
@@ -73,19 +68,12 @@ namespace hellmath
     // of type `AccountStatus` and returns a `bool`.
     bool valid_player_combination(AccountStatus player1, AccountStatus player2)
     {
-        if (player1 == AccountStatus::troll && player2 != AccountStatus::troll)
+        // 두 플레이어가 게임에 참여할 수 있는 조건 간소화
+        if (player1 == AccountStatus::troll || player2 == AccountStatus::troll)
         {
-            return false;
+            return player1 == player2;
         }
-        else if (player1 != AccountStatus::troll && player2 == AccountStatus::troll)
-        {
-            return false;
-        }
-        else if (player1 == AccountStatus::guest || player2 == AccountStatus::guest)
-        {
-            return false;
-        }
-        return true;
+        return player1 != AccountStatus::guest && player2 != AccountStatus::guest;
     }
 
     // TODO: Task 5 - Implement the `has_priority` function that takes two
@@ -93,7 +81,8 @@ namespace hellmath
     // account has a strictly higher priority than the second.
     bool has_priority(AccountStatus status1, AccountStatus status2)
     {
-        return status1 > status2;
+        // 더 명확한 우선순위 비교
+        return static_cast<int>(status1) > static_cast<int>(status2);
     }
 
 } // namespace hellmath
