@@ -1,27 +1,26 @@
 class SqueakyClean {
-    static String clean(String identifier) {
-        String tmpIdentifier = identifier.replaceAll("\\s", "_").replaceAll("[^\\w_-]", "");
-        StringBuilder builder = new StringBuilder(tmpIdentifier);
-        while (builder.indexOf("-") != -1) {
-            int index = builder.indexOf("-");
-            builder = builder.replace(index, index + 1,
-                    String.valueOf(Character.toUpperCase(builder.charAt(index + 1))));
-            builder = builder.deleteCharAt(index + 1);
-        }
+        static String clean(String identifier) {
+                // 공백을 '_'로 변환하고, 알파벳, 숫자, '_', '-' 이외 문자 제거
+                String tmpIdentifier = identifier.replaceAll("\\s", "_").replaceAll("[^\\w-]", "");
 
-        while (builder.indexOf("4") != -1 || builder.indexOf("3") != -1 || builder.indexOf("0") != -1
-                || builder.indexOf("7") != -1 || builder.indexOf("1") != -1) {
-            builder = builder.indexOf("4") != -1 ? builder.replace(builder.indexOf("4"), builder.indexOf("4") + 1, "a")
-                    : builder;
-            builder = builder.indexOf("3") != -1 ? builder.replace(builder.indexOf("3"), builder.indexOf("3") + 1, "e")
-                    : builder;
-            builder = builder.indexOf("0") != -1 ? builder.replace(builder.indexOf("0"), builder.indexOf("0") + 1, "o")
-                    : builder;
-            builder = builder.indexOf("7") != -1 ? builder.replace(builder.indexOf("7"), builder.indexOf("7") + 1, "t")
-                    : builder;
-            builder = builder.indexOf("1") != -1 ? builder.replace(builder.indexOf("1"), builder.indexOf("1") + 1, "l")
-                    : builder;
+                // '-' 뒤의 문자를 대문자로 변경하는 로직 개선
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < tmpIdentifier.length(); i++) {
+                        if (tmpIdentifier.charAt(i) == '-' && i + 1 < tmpIdentifier.length()) {
+                                // 다음 문자를 대문자로 변환하고 '-'는 제외
+                                builder.append(Character.toUpperCase(tmpIdentifier.charAt(i + 1)));
+                                i++; // 다음 문자는 이미 처리했으므로 인덱스 증가
+                        } else {
+                                builder.append(tmpIdentifier.charAt(i));
+                        }
+                }
+
+                // 숫자를 해당 문자로 치환
+                return builder.toString()
+                                .replace("4", "a")
+                                .replace("3", "e")
+                                .replace("0", "o")
+                                .replace("7", "t")
+                                .replace("1", "l");
         }
-        return builder.toString();
-    }
 }
