@@ -4,7 +4,7 @@ class BirdWatcher {
     private final int[] birdsPerDay;
 
     public BirdWatcher(int[] birdsPerDay) {
-        this.birdsPerDay = birdsPerDay.clone();
+        this.birdsPerDay = birdsPerDay.clone(); // 배열의 깊은 복사를 수행하여 외부 수정으로부터 독립성 보장
     }
 
     public int[] getLastWeek() {
@@ -12,20 +12,25 @@ class BirdWatcher {
     }
 
     public int getToday() {
-        return birdsPerDay[birdsPerDay.length - 1]; // 마지막 요소 반환
+        if (birdsPerDay.length == 0) {
+            return 0; // 배열이 비어있는 경우 0 반환
+        }
+        return birdsPerDay[birdsPerDay.length - 1]; // 마지막 요소 반환, 배열이 비었을 때 예외 방지
     }
 
     public void incrementTodaysCount() {
-        birdsPerDay[birdsPerDay.length - 1]++; // 오늘의 새 수 증가
+        if (birdsPerDay.length > 0) {
+            birdsPerDay[birdsPerDay.length - 1]++; // 배열이 비어 있지 않을 때만 오늘의 새 수 증가
+        }
     }
 
     public boolean hasDayWithoutBirds() {
         for (int day : birdsPerDay) {
             if (day == 0) {
-                return true; // 0이 있는 경우 true 반환
+                return true; // 하루도 새가 없는 날이 있으면 true 반환
             }
         }
-        return false; // 0이 없는 경우 false 반환
+        return false; // 모든 날에 적어도 하나의 새가 있으면 false 반환
     }
 
     public int getCountForFirstDays(int numberOfDays) {
@@ -40,7 +45,7 @@ class BirdWatcher {
         int busyDays = 0;
         for (int day : birdsPerDay) {
             if (day >= 5) {
-                busyDays++; // 5마리 이상인 경우 busyDays 증가
+                busyDays++; // 하루에 5마리 이상인 경우 busyDays 증가
             }
         }
         return busyDays;
