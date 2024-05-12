@@ -1,31 +1,26 @@
 public class CarsAssemble {
 
+    private static final int PRODUCTION_PER_SPEED_UNIT = 221;
+
     public double productionRatePerHour(int speed) {
+        double faultRate;
         if (speed >= 1 && speed <= 4) {
-            double success_product = speed * 221;
-            return success_product;
+            faultRate = 0.0; // 고장율 0%
         } else if (speed >= 5 && speed <= 8) {
-            double fault_rate = 0.10;
-            double success_product = speed * 221;
-            double real_success_product = success_product - (success_product * fault_rate);
-            return real_success_product;
+            faultRate = 0.10; // 고장율 10%
         } else if (speed == 9) {
-            double fault_rate = 0.20;
-            double success_product = speed * 221;
-            double real_success_product = success_product - (success_product * fault_rate);
-            return real_success_product;            
+            faultRate = 0.20; // 고장율 20%
         } else {
-            double fault_rate = 0.23;
-            double success_product = speed * 221;
-            double real_success_product = success_product - (success_product * fault_rate);
-            return real_success_product;            
+            faultRate = 0.23; // 고장율 23%
         }
+
+        double successProduct = speed * PRODUCTION_PER_SPEED_UNIT * (1 - faultRate);
+        return successProduct;
     }
 
     public int workingItemsPerMinute(int speed) {
-        // https://www.w3schools.com/java/java_type_casting.asp
-        int productionRatePerHour = (int) productionRatePerHour(speed);
-        int real_product_per_min = productionRatePerHour / 60;
-        return real_product_per_min;
+        double productionRate = productionRatePerHour(speed);
+        int realProductPerMin = (int) Math.floor(productionRate / 60); // 소수점 아래 절삭
+        return realProductPerMin;
     }
 }
