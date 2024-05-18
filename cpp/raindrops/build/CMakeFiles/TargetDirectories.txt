@@ -1,0 +1,4 @@
+/Users/sallyride/Exercism/cpp/raindrops/build/CMakeFiles/raindrops.dir
+/Users/sallyride/Exercism/cpp/raindrops/build/CMakeFiles/test_raindrops.dir
+/Users/sallyride/Exercism/cpp/raindrops/build/CMakeFiles/edit_cache.dir
+/Users/sallyride/Exercism/cpp/raindrops/build/CMakeFiles/rebuild_cache.dir
