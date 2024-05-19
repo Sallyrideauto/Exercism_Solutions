@@ -1,0 +1,4 @@
+/Users/sallyride/Exercism/cpp/pangram/build/CMakeFiles/pangram.dir
+/Users/sallyride/Exercism/cpp/pangram/build/CMakeFiles/test_pangram.dir
+/Users/sallyride/Exercism/cpp/pangram/build/CMakeFiles/edit_cache.dir
+/Users/sallyride/Exercism/cpp/pangram/build/CMakeFiles/rebuild_cache.dir
