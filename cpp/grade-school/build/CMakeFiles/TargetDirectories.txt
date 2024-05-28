@@ -1,0 +1,4 @@
+/Users/sallyride/Exercism/cpp/grade-school/build/CMakeFiles/grade-school.dir
+/Users/sallyride/Exercism/cpp/grade-school/build/CMakeFiles/test_grade-school.dir
+/Users/sallyride/Exercism/cpp/grade-school/build/CMakeFiles/edit_cache.dir
+/Users/sallyride/Exercism/cpp/grade-school/build/CMakeFiles/rebuild_cache.dir
