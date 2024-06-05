@@ -1,6 +1,6 @@
 # This module defines functions to calculate the baking and preparation times for lasagna.
 
-EXPECTED_BAKE_TIME = 40
+EXPECTED_BAKE_TIME = 40 # Expected baking time in minutes for the lasagna.
 
 def bake_time_remaining(passed_time):
     """
