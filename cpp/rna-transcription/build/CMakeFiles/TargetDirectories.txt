@@ -1,0 +1,4 @@
+/Users/sallyride/Exercism/cpp/rna-transcription/build/CMakeFiles/rna-transcription.dir
+/Users/sallyride/Exercism/cpp/rna-transcription/build/CMakeFiles/test_rna-transcription.dir
+/Users/sallyride/Exercism/cpp/rna-transcription/build/CMakeFiles/edit_cache.dir
+/Users/sallyride/Exercism/cpp/rna-transcription/build/CMakeFiles/rebuild_cache.dir
