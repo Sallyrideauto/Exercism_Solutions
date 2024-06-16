@@ -1,0 +1,4 @@
+/Users/sallyride/Exercism/cpp/queen-attack/build/CMakeFiles/queen-attack.dir
+/Users/sallyride/Exercism/cpp/queen-attack/build/CMakeFiles/test_queen-attack.dir
+/Users/sallyride/Exercism/cpp/queen-attack/build/CMakeFiles/edit_cache.dir
+/Users/sallyride/Exercism/cpp/queen-attack/build/CMakeFiles/rebuild_cache.dir
