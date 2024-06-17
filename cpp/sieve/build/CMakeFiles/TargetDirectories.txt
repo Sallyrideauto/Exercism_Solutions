@@ -1,0 +1,4 @@
+/Users/sallyride/Exercism/cpp/sieve/build/CMakeFiles/sieve.dir
+/Users/sallyride/Exercism/cpp/sieve/build/CMakeFiles/test_sieve.dir
+/Users/sallyride/Exercism/cpp/sieve/build/CMakeFiles/edit_cache.dir
+/Users/sallyride/Exercism/cpp/sieve/build/CMakeFiles/rebuild_cache.dir
